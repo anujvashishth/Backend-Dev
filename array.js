@@ -11,3 +11,8 @@ console.log(arr);
 
 arr.unshift(70);
 console.log(arr);
+
+let a = [3, 5, 7, 8]
+a.map((value,i)=>{
+    console.log(value,i);
+})
