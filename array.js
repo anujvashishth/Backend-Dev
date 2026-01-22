@@ -1,26 +1,26 @@
-// let arr = [10, 30, 40];
-// arr.push(60);
-// console.log(arr);
+let arr = [10, 30, 40];
+arr.push(60);
+console.log(arr);
 
 
-// arr.pop();
-// console.log(arr);
+arr.pop();
+console.log(arr);
 
-// arr.shift()
-// console.log(arr);
+arr.shift()
+console.log(arr);
 
-// arr.unshift(70);
-// console.log(arr);
+arr.unshift(70);
+console.log(arr);
 
-// let a = [3, 5, 7, 8]
-// a.map((value,i)=>{
-//     console.log(value,i);
-// })
+let a = [3, 5, 7, 8]
+a.map((value,i)=>{
+     console.log(value,i);
+})
 
-/*let ar = [4, 5, 6, 7];
+let ar = [4, 5, 6, 7];
 ar.map((value,index)=>{
 })
-console.log(b);*/
+console.log(b)
 
 let data = [
   { "_id": 2, "quantity": 5, "price": 25, "targetPrice": 100 },
