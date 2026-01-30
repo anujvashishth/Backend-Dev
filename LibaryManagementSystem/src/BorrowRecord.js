@@ -1,6 +1,6 @@
 import fs from "fs";
 
-function BorroRecord(memberid,bookid,quantity){
+function BorrowRecord(memberid,bookid,quantity){
 
     let borrowRecord = [];
     let obj={
@@ -23,7 +23,7 @@ function BorroRecord(memberid,bookid,quantity){
             }
              borrowRecord.push(obj);
                 fs.writeFileSync("borrow.json",JSON.stringify(borrowRecord,null,2));
-            if(memberType.membershipType=="gold"){
+            if(memberType.membershipType==="gold"){
                 let res = bookPrice.price*quantity;
                 res = Math.ceil((res*15)/100);
                 return res;
@@ -40,4 +40,4 @@ function BorroRecord(memberid,bookid,quantity){
         console.log(err);
     }
 }
-export default BorroRecord;
+export default BorrowRecord;

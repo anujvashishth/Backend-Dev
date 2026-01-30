@@ -5,4 +5,4 @@
 // member ("Anuj", "gold")
 
 import BorrowRecord from "./src/BorrowRecord.js";
-BorrowRecord("2026-01-29T09:21:18.677Z", "2026-01-29T09:41:32.774Z",2)
+BorrowRecord("2026-01-29T09:41:32.774Z", "2026-01-29T09:21:18.677Z", 2)
