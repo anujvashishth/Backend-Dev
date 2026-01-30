@@ -1,11 +1,11 @@
 import fs from "fs";
 
-function BorroRecord(memberId,bookId,quantity){
+function BorroRecord(memberid,bookid,quantity){
 
     let borrowRecord = [];
     let obj={
-        borrowId :new Date(),
-        memberId,bookId,quantity
+        borrowid :new Date(),
+        memberid,bookid,quantity
     }
     try{
         if(fs.existsSync("book.json") && fs.existsSync("member.json")){
@@ -13,6 +13,7 @@ function BorroRecord(memberId,bookId,quantity){
             let member = JSON.parse(fs.readFileSync("member.json","utf-8"));
             let bookPrice = book.find((value)=> value.bookid === bookid);
             let memberType = member.find((value)=> value.memberid === memberid);
+            
             if(fs.existsSync("borrow.json")){
                 let data =JSON.parse( fs.readFileSync("borrow.json","utf-8"));
                 if(data){
@@ -22,7 +23,7 @@ function BorroRecord(memberId,bookId,quantity){
             }
              borrowRecord.push(obj);
                 fs.writeFileSync("borrow.json",JSON.stringify(borrowRecord,null,2));
-            if(memberType.type==="gold"){
+            if(memberType.membershipType=="gold"){
                 let res = bookPrice.price*quantity;
                 res = Math.ceil((res*15)/100);
                 return res;
