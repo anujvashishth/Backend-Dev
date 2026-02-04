@@ -6,19 +6,21 @@
 // server.listen(port, ()=>{
 //     console.log("connect")
 // })
-import express from "express"
+import express from 'express';
+import createUser from "./register.js";
+import login from './login.js';
 let port = 8080;
-let app = express();
+const app = express();
+import usermidd3 from "usermidd3"
+app.use(express.json());
 
-app.use(express.json())
-app.get("/", (req, res)=>{
-    res.send(" home ")
-})
-app.post("/home", (req, res)=>{
-    let{id,name} =req.body
-    console.log(id,name);
-    res.send(`${id} and ${name}`)
-})
+app.post("/signup", usermidd3, createUser);
+app.post("/loginuser", usermidd3,login)
+// app.post("/home", (req, res)=>{
+//     let{id,name} =req.body
+//     console.log(id,name);
+//     res.send(`${id} and ${name}`)
+// })
 
 app.listen(port, ()=>{
     console.log("connect")
