@@ -9,9 +9,12 @@
 import express from 'express';
 import createUser from "./register.js";
 import login from './login.js';
-let port = 8080;
+import dotenv from "dotenv";
+import usermidd3 from "./midd.js"
+dotenv.config();
+let port = process.env.PORT
+//let port = 8080;
 const app = express();
-import usermidd3 from "usermidd3"
 app.use(express.json());
 
 app.post("/signup", usermidd3, createUser);

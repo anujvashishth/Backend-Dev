@@ -11,7 +11,6 @@
 // }
 import joi from 'joi';
 import {StatusCodes} from 'http-status-pro-js'
-import login from './login/login.js';
 
 function usermidd3(req, res, next) {
     try{
