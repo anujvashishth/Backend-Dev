@@ -5,7 +5,7 @@ function createUser(req, res){
         if (!userid || !username) {
       return res.status(400).send("userid and username are required");
     }
-    f (!fs.existsSync("user.json")) {
+     (!fs.existsSync("user.json")) {
           return res.status(404).send("No users found");
   }
 }
