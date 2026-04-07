@@ -9,9 +9,7 @@ import auth from "../Auth/todo.Auth.js"
           data.save()
         
     } catch (error) {
-        return{
-
-        }
+        console.error(error)
         
     }
  })
@@ -19,6 +17,7 @@ import auth from "../Auth/todo.Auth.js"
     try {
         
     } catch (error) {
+      
         
     }
     let{email, password} = req.body
