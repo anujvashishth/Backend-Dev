@@ -1,9 +1,6 @@
 import jwt from "jsonwebtoken";
  import bcrypt from "bcrypt";
  import {StatusCodes} from "http-status-pro-js"
- import {userlogindb} from "../model/user.model.js"
-import dotenv from "dotenv"
-dotenv.config()
 
  function userloggingservice(req, res){
     try {
