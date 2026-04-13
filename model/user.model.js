@@ -17,6 +17,11 @@ let userSchema = mongoose.Schema({
         lowercase:true
 
     },
+    password:{
+        type:String,
+        required:true,
+        unique: true
+    },
     gender:{
         type:String,
         trim:true,

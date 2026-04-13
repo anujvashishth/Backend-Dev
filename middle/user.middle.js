@@ -1,44 +1,34 @@
-import jwt from "jsonwebtoken";
- import bcrypt from "bcrypt";
- import {StatusCodes} from "http-status-pro-js"
+import joi from "joi";
+import {StatusCodes} from "http-status-pro-js"
 
- function userloggingservice(req, res){
+function userlogging(req, res, next){
     try {
-        let{email, password} = req.body;
-        let data = userlogindb(email)
-        if(!data){
-            res.status(StatusCodes.INTERNAL_SERVER_ERROR.code).json({
-                code:StatusCodes.INTERNAL_SERVER_ERROR.code,
-                message:StatusCodes.INTERNAL_SERVER_ERROR.message,
+         let scheam = joi.object({
+            email:joi.string().trim().lowercase().min(6).max(200).required(),
+            password:joi.string().trim().min(4).max(8).required()
+         })
+         let {error, value} = scheam.validate(req.body)
+         if(error){
+            res.status(StatusCodes.BAD_REQUEST.code).json({
+                code:StatusCodes.BAD_REQUEST.code,
+                message:error,
                 data:null
             })
             return;
-        }
-        let isuser = bcrypt.compareSync(password, data.password)
-        if(!isuser){
-              res.status(StatusCodes.INTERNAL_SERVER_ERROR.code).json({
-                code:StatusCodes.INTERNAL_SERVER_ERROR.code,
-                message:StatusCodes.INTERNAL_SERVER_ERROR.message,
-                data:null
-            })
-            return;
-        }
-        let token = jwt.sign({id:data.id}, process.env.TOKEN, {expiresIn:"24h"})
-        res.status(StatusCodes.OK.code).json({
-            code:StatusCodes.OK.code,
-            message:StatusCodes.OK.message,
-            data:{email:data.email, token:token}
-        })  
+         }
+        req.body = value;
+        next()
     } catch (error) {
-        console.log("usreloginservice", error);
+        console.log("user mid", error);
         res.status(StatusCodes.INTERNAL_SERVER_ERROR.code).json({
             code:StatusCodes.INTERNAL_SERVER_ERROR.code,
             message:StatusCodes.INTERNAL_SERVER_ERROR.message,
             data:null
         })
-       
+        return
        
     }
- }
 
- export default userloggingservice;
+}
+export default userlogging
+   
