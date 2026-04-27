@@ -5,10 +5,11 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import logger from "../logger/log.js";
 
+
 export let register = async (req, res) => {
     try {
         let { username, email, password } = req.body;
-        await sendMail(email, password)
+        await sendMail(email, " user create successful ")
         let user = await User.create({ username, email, password });
         return res.status(201).json({ message: "User created successfully", user });
     } catch (error) {

@@ -5,7 +5,9 @@ import cors from "cors";
 import userrouter from "./routers/user.router.js";
 import sendMail from "./helperfile/nodemailer.js";
 
+
 import logger from "./logger/log.js";
+import { buyStoke } from "./controller/stoke.controller.js";
 
 const app = express();
 
@@ -13,6 +15,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/user", userrouter);
+app.use("/stock",buyStoke);
 
 mongoose.connect(process.env.MONGODB_URL).then(() => {
     console.log("Database connected successfully");
