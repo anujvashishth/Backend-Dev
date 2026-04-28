@@ -1,7 +1,6 @@
 import User from "../model/user.model.js";
 import sendMail from "../helperfile/nodemailer.js";
 import { StatusCodes } from "http-status-pro-js"
-import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import logger from "../logger/log.js";
 

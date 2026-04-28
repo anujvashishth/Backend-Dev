@@ -6,5 +6,3 @@ const router=express.Router();
 router.post("/stock",buyStoke);
 
 export default router;
-
-

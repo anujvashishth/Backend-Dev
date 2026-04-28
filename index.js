@@ -8,12 +8,12 @@ import sendMail from "./helperfile/nodemailer.js";
 
 import logger from "./logger/log.js";
 import { buyStoke } from "./controller/stoke.controller.js";
-
+import stockdata from "./helperfile/stock.js";
 const app = express();
 
 app.use(express.json());
 app.use(cors());
-
+await stockdata()
 app.use("/user", userrouter);
 app.use("/stock",buyStoke);
 
