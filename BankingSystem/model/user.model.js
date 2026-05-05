@@ -1,6 +1,6 @@
 import { required } from "joi";
 import mongoose from "mongoose";
-let userSchema = mongoose.userSchema({
+let userSchema = mongoose.Schema({
     id:{
         type:String,
         required:true

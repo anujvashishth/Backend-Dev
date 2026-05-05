@@ -1,5 +1,12 @@
 import mongoose from "mongoose";
 let connectDB = async()=>{
-    await mongoose.Model(process.env.MONGODB_URL);
-
+     try {
+        await mongoose.connect(process.env.MONGO_URL)
+        console.log("connect database");
+    } catch (error) {
+        console.log("error form bd connection", error)
+        
+    }
 }
+export default connectDB; 
+

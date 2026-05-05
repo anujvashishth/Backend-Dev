@@ -1,4 +1,4 @@
 import mongoose from "mongoose";
-let AccountSchema = mongoose.AccountSchema({
+let AccountSchema = mongoose.Schema({
     
 })
