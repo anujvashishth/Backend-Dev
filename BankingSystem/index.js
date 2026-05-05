@@ -4,6 +4,7 @@ import joi from "joi";
 import jwt from  "jsonwebtoken";
 import dotenv from "dotenv";
 import cors from "cors";
+import mongoose from "mongoose";
 dotenv.config()
 let app = express()
 app.use(helmet())
